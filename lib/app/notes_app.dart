@@ -7,8 +7,9 @@ class NotesApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      onGenerateRoute: RoutesManager.onGenerateRoute,
       routes: RoutesManager.routes,
-      initialRoute: RoutesName.onBoardingScreen,
     );
   }
 }
