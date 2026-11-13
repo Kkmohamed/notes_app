@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app/core/resources/assets_manager.dart';
 import 'package:notes_app/core/resources/colors_manager.dart';
+import 'package:notes_app/core/resources/const_values.dart';
+import 'package:notes_app/core/resources/size_managers.dart';
+
+import '../widgets/custom_bottom_nav_bar_on_boarding_screen.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({super.key});
@@ -8,28 +12,36 @@ class OnBoardingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: Padding(
-        padding: EdgeInsets.only(bottom: 50),
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            minimumSize: Size(75, 75),
-            backgroundColor: ColorsManager.kPrimaryColor,
-            shape: CircleBorder(),
-          ),
-          onPressed: () {},
-          child: Icon(
-            Icons.arrow_forward_ios_outlined,
-            color: ColorsManager.kWhiteColor,
-            size: 15,
-          ),
-        ),
-      ),
+      backgroundColor: ColorsManager.kWhiteColor,
+      bottomNavigationBar: CustomBottomNavBarOnBoardingScreen(onPressed: () {}),
       body: Container(
+        padding: EdgeInsets.symmetric(horizontal: PaddingManager.p30),
         width: double.infinity,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(height: 125),
-            Image.asset(AssetsManager.onBoardingPng, width: 282),
+            SizedBox(height: HeightManager.h125),
+            Image.asset(AssetsManager.onBoardingPng, width: WidthManager.w282),
+            SizedBox(height: HeightManager.h55),
+            Text(
+              textAlign: TextAlign.center,
+              ConstValues.onBoardingTitle,
+              style: TextStyle(
+                fontFamily: FontsManager.fontOtama,
+                fontSize: FontsManager.f48,
+              ),
+            ),
+            SizedBox(height: HeightManager.h20),
+            Text(
+              textAlign: TextAlign.center,
+              ConstValues.onBoardingDesc,
+              style: TextStyle(
+                fontFamily: FontsManager.fontOtama,
+                color: ColorsManager.kGreyColor,
+                fontSize: FontsManager.f16,
+              ),
+            ),
           ],
         ),
       ),
