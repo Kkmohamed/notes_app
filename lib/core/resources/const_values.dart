@@ -5,7 +5,11 @@ class ConstValues {
   static const String onBoardingDesc =
       "Dive right in and clear that mind of yours by writing your thoughts down.";
   static const String kNote = "Notes";
+  static const String kShouldAddTitleAndDesc = "Should add title and desc";
+  static const String kToSave = "to save";
   static const String kBack = "Back";
+  static const String kOk = "Ok";
+  static const String kDelete = "Delete";
   static const String kTitle = "Title";
   static const String kTypeSomeThing = "Type something...";
   static const String kCreateYourFirstNote = "Create your first note !";

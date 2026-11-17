@@ -5,7 +5,10 @@ class SizeManagers {}
 class HeightManager {
   HeightManager._();
 
+  static double h2 = 2.h;
   static double h6 = 6.h;
+  static double h8 = 8.h;
+  static double h16 = 16.h;
   static double h20 = 20.h;
   static double h33 = 33.h;
   static double h50 = 50.h;
@@ -19,7 +22,10 @@ class HeightManager {
 class WidthManager {
   WidthManager._();
 
+  static double w16 = 16.w;
+  static double w32 = 32.w;
   static double w33 = 33.w;
+  static double w41 = 41.w;
   static double w50 = 50.w;
   static double w70 = 70.w;
   static double w75 = 75.w;
@@ -54,8 +60,10 @@ class PaddingManager {
   static double p4 = 4;
   static double p6 = 6;
   static double p7 = 7;
+  static double p8 = 8;
   static double p14 = 14;
   static double p15 = 15;
+  static double p16 = 16;
   static double p25 = 25;
   static double p30 = 30;
   static double p50 = 50;
@@ -70,6 +78,7 @@ class BorderRadiusManager {
   static double br10 = 10.r;
   static double br14 = 14.r;
   static double br15 = 15.r;
+  static double br16 = 16.r;
   static double br25 = 25.r;
   static double br30 = 30.r;
   static double br50 = 50.r;

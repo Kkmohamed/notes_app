@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app/controller/new_note_screen/new_note_controller.dart';
-import 'package:notes_app/core/resources/colors_manager.dart';
-import 'package:notes_app/core/resources/const_values.dart';
 import 'package:notes_app/core/resources/size_managers.dart';
 
 import '../widgets/custom_app_bar_new_note_screen.dart';
+import '../widgets/custom_text_field_desc_note.dart';
+import '../widgets/custom_text_field_title.dart';
 
 class NewNoteScreen extends StatefulWidget {
   const NewNoteScreen({super.key});
@@ -23,6 +23,12 @@ class _NewNoteScreenState extends State<NewNoteScreen> {
   }
 
   @override
+  void dispose() {
+    _controller.disposeController();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
@@ -38,53 +44,24 @@ class _NewNoteScreenState extends State<NewNoteScreen> {
                 onPressedBack: () {
                   _controller.goBack();
                 },
-                onPressedAtMark: () {},
+                onPressedAtMark: () {
+                  _controller.onTapAtMarkIcon();
+                },
               ),
               Expanded(
-                child: Form(
-                  child: Column(
-                    children: [
-                      TextFormField(
-                        maxLines: 1,
-                        style: TextStyle(
-                          color: ColorsManager.kBlackColor,
-                          fontFamily: FontsManager.fontOtama,
-                          fontSize: FontsManager.f48,
-                        ),
-                        decoration: InputDecoration(
-                          hintText: ConstValues.kTitle,
-                          hintStyle: TextStyle(
-                            color: ColorsManager.kGrey2Color,
-                            fontFamily: FontsManager.fontOtama,
-                            fontSize: FontsManager.f48,
-                          ),
-                          border: InputBorder.none,
+                child: Column(
+                  children: [
+                    CustomTextFieldTitle(
+                      titleController: _controller.titleController,
+                    ),
+                    Expanded(
+                      child: SingleChildScrollView(
+                        child: CustomTextFieldDescNote(
+                          descController: _controller.descController,
                         ),
                       ),
-                      Expanded(
-                        child: SingleChildScrollView(
-                          child: TextFormField(
-                            keyboardType: TextInputType.multiline,
-                            maxLines: null,
-                            style: TextStyle(
-                              color: ColorsManager.kBlackColor,
-                              fontFamily: FontsManager.fontOtama,
-                              fontSize: FontsManager.f23,
-                            ),
-                            decoration: InputDecoration(
-                              hintText: ConstValues.kTypeSomeThing,
-                              hintStyle: TextStyle(
-                                color: ColorsManager.kGrey2Color,
-                                fontFamily: FontsManager.fontOtama,
-                                fontSize: FontsManager.f23,
-                              ),
-                              border: InputBorder.none,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ],
